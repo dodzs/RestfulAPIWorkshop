@@ -56,6 +56,11 @@ app.get('/map', (req, resp) => {
     //Latitude and longitude from coord object above
     //API key is in keys.map
     const params = {
+        key: keys.map,
+        center: `${coord.lat},${coord.lon}`,
+        size: `300x300`,
+        zoom: 15,
+        markers : `size:mid|color:red|label:A|${coord.lat},${coord.lon}`
     }
 
     getMap({ qs: params, encoding: null})
@@ -81,6 +86,8 @@ app.get('/information', (req, resp) => {
     //Weather for city is in cityName variable
     //API key is in keys.weather
     const params = {
+        q: cityName,
+        appid: keys.weather
     }
 
     getWeather(params)
@@ -93,6 +100,9 @@ app.get('/information', (req, resp) => {
             //The 2 character country code is found in countryCode variable
             //API key is in keys.news
             const params = {
+                country: countryCode,
+                category: 'technology',
+                apiKey: keys.news
             }
             return (Promise.all([ result, getNews(params) ]));
         })
