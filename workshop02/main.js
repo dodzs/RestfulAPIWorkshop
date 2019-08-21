@@ -75,7 +75,7 @@ app.get('/api/state/:state',
 					length: results[1]
 				})
 				resp.json(
-					results[0].map(v => `/api/city/${v}`)
+					results[0].map(v=>`/api/city/${v}`)
 					);
 			})
 			.catch(error => {
