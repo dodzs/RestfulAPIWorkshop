@@ -35,8 +35,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // TODO 1/2 Load schemans
-
-
+const citySchema = require('./schema/city-schema.json');
+console.info(citySchema);
 
 
 // Start of workshop
@@ -50,8 +50,8 @@ app.head('/api/state/:state',
 		//should check if :state exists
 		resp.status(200);
 		resp.type('application/json');
-		resp.header('Accept-Ranges','cities')
-		resp.end()
+		resp.header('Accept-Ranges','cities');
+		resp.end();
 	}
 )
 
@@ -112,6 +112,7 @@ app.get('/api/city/:varCityID',
 // TODO POST /api/city
 // application/x-www-form-urlencoded - body
 app.post('/api/city',
+	schemaValidator.validate({body:citySchema}),
 	(req,resp) => {
 		const data = req.body;
 		db.insertCity(data)

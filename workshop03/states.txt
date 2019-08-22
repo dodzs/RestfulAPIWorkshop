@@ -5,5 +5,5 @@
 	"MI", "IA", "WI", "MN", "SD", "ND", "MT", "IL", 
 	"MO", "KS", "NE", "LA", "AR", "OK", "TX", "CO", 
 	"WY", "ID", "UT", "AZ", "NM", "NV", "CA", "HI", 
-	"OR", "WA", "AK"
+	"OR", "WA", "AK","SG"
 ]
