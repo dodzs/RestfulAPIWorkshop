@@ -34,11 +34,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// TODO 1/2 Load schemans
+// TODO 1/2 Load schemas
 const citySchema = require('./schema/city-schema.json');
 console.info(citySchema);
 //const cityAPISpec = require('./schema/city-api.yaml');
-new OpenAPIValidator(
+new OpenAPIValidator( //to validate only those that describe here will be able to do
 	{apiSpecPath: __dirname + '/schema/city-api.yaml'}
 ).install(app);
 
@@ -152,7 +152,6 @@ app.post('/api/city',
 
 	}
 )
-
 
 // End of workshop
 
